@@ -1,0 +1,16 @@
+:root {
+	--font-button: "Odibee Sans", cursive;
+	--fondo-rojo: rgba(137, 73, 73, 0.6);
+	--fondo-verde: rgba(106, 146, 74, 0.6);
+	--fondo-gris: rgba(106, 112, 101, 0.6);
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	background: url("./assets/fondo.svg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
