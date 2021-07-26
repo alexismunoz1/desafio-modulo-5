@@ -38,8 +38,8 @@ export function initRouter(container: Element) {
 		});
 	}
 
-	if (location.pathname == "/") {
-		goTo("/welcome");
+	if (location.host.includes("github.io")) {
+		goTo("/desafio-m5");
 	} else {
 		handleRoute(location.pathname);
 	}
