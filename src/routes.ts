@@ -5,19 +5,19 @@ import { init as initResults } from "./pages/results";
 
 const routes = [
 	{
-		path: /\/desafio-m5\/welcome/,
+		path: /\/desafio-modulo-5\/welcome/,
 		component: initWelcome,
 	},
 	{
-		path: /\/desafio-m5\/rules/,
+		path: /\/desafio-modulo-5\/rules/,
 		component: initRules,
 	},
 	{
-		path: /\/desafio-m5\/game/,
+		path: /\/desafio-modulo-5\/game/,
 		component: initGame,
 	},
 	{
-		path: /\/desafio-m5\/results/,
+		path: /\/desafio-modulo-5\/results/,
 		component: initResults,
 	},
 ];
@@ -38,8 +38,8 @@ export function initRouter(container: Element) {
 		});
 	}
 
-	if (location.pathname == "/apx-desafio-m5/") {
-		goTo("/apx-desafio-m5/welcome");
+	if (location.pathname == "/desafio-modulo-5/") {
+		goTo("/desafio-modulo-5/welcome");
 	  } else {
 		handleRoute(location.pathname);
 	  }
