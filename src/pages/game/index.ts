@@ -12,7 +12,7 @@ export function init(params) {
 
 		if (counter <= 0) {
 			clearInterval(countdown);
-			params.goTo("/rules");
+			params.goTo("/desafio-modulo-5/rules");
 		}
 	}, 1000);
 
