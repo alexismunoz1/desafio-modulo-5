@@ -38,7 +38,7 @@ export function initRouter(container: Element) {
 		});
 	}
 
-	if (location.pathname == /desafio-modulo-5/) {
+	if (location.host.includes("alexismunoz1.github.io")) {
 		goTo("/desafio-modulo-5/welcome");
 	  } else {
 		handleRoute(location.pathname);
