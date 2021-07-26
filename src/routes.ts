@@ -40,7 +40,8 @@ export function initRouter(container: Element) {
 
 	if (location.host.includes("alexismunoz1.github.io")) {
 		goTo("/desafio-modulo-5/welcome");
-	  } else {
+	  } 
+	/*else {
 		handleRoute(location.pathname);
-	  }
+	  }*/
 }
