@@ -5,19 +5,19 @@ import { init as initResults } from "./pages/results";
 
 const routes = [
 	{
-		path: /\/desafio-m5/,
+		path: /\/desafio-m5\/welcome/,
 		component: initWelcome,
 	},
 	{
-		path: /\/rules/,
+		path: /\/desafio-m5\/rules/,
 		component: initRules,
 	},
 	{
-		path: /\/game/,
+		path: /\/desafio-m5\/game/,
 		component: initGame,
 	},
 	{
-		path: /\/results/,
+		path: /\/desafio-m5\/results/,
 		component: initResults,
 	},
 ];
@@ -38,9 +38,9 @@ export function initRouter(container: Element) {
 		});
 	}
 
-	if (location.host.includes("github.io")) {
-		goTo("/desafio-m5");
-	} else {
+	if (location.pathname == "/apx-desafio-m5/") {
+		goTo("/apx-desafio-m5/welcome");
+	  } else {
 		handleRoute(location.pathname);
-	}
+	  }
 }
