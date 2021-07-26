@@ -40,7 +40,7 @@ export function init(params) {
 				state.setMove("papel");
 			}
 
-			params.goTo("/results");
+			params.goTo("/desafio-modulo-5/results");
 		});
 	}
 

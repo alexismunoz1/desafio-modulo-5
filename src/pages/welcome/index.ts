@@ -1,4 +1,3 @@
-import { state } from "../../state";
 const imgTitle = require("url:../../assets/imgWelcome.svg");
 
 export function init(params) {
@@ -22,7 +21,7 @@ export function init(params) {
 
 	const button = div.querySelector(".btn-comp");
 	button.addEventListener("click", () => {
-		params.goTo("/rules");
+		params.goTo("/desafio-modulo-5/rules");
 	});
 	div.appendChild(style);
 	return div;

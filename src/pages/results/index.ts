@@ -49,13 +49,13 @@ export function init(params) {
 
 	const buttonBack = div.querySelector(".button-back");
 	buttonBack.addEventListener("click", () => {
-		params.goTo("/game");
+		params.goTo("/desafio-modulo-5/game");
 	});
 
 	const buttonClean = div.querySelector(".button-clean");
 	buttonClean.addEventListener("click", () => {
 		state.cleanData();
-		params.goTo("/rules");
+		params.goTo("/desafio-modulo-5/rules");
 	});
 
 	div.appendChild(style);
