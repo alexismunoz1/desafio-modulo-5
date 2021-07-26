@@ -38,7 +38,7 @@ export function initRouter(container: Element) {
 		});
 	}
 
-	if (location.pathname == "/desafio-modulo-5/") {
+	if (location.pathname == /desafio-modulo-5/) {
 		goTo("/desafio-modulo-5/welcome");
 	  } else {
 		handleRoute(location.pathname);
