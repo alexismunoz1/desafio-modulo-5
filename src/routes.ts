@@ -5,7 +5,7 @@ import { init as initResults } from "./pages/results";
 
 const routes = [
 	{
-		path: /\/welcome/,
+		path: /\/desafio-m5/,
 		component: initWelcome,
 	},
 	{
