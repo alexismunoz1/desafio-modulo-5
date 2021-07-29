@@ -4,43 +4,43 @@ import { init as initGame } from "./pages/game";
 import { init as initResults } from "./pages/results";
 
 const routes = [
-	{
-		path: /\/desafio-modulo-5\/welcome/,
-		component: initWelcome,
-	},
-	{
-		path: /\/desafio-modulo-5\/rules/,
-		component: initRules,
-	},
-	{
-		path: /\/desafio-modulo-5\/game/,
-		component: initGame,
-	},
-	{
-		path: /\/desafio-modulo-5\/results/,
-		component: initResults,
-	},
+  {
+    path: /\/desafio-modulo-5\/welcome/,
+    component: initWelcome,
+  },
+  {
+    path: /\/desafio-modulo-5\/rules/,
+    component: initRules,
+  },
+  {
+    path: /\/desafio-modulo-5\/game/,
+    component: initGame,
+  },
+  {
+    path: /\/desafio-modulo-5\/results/,
+    component: initResults,
+  },
 ];
 
 export function initRouter(container: Element) {
-	function goTo(path) {
-		history.pushState({}, "", path);
-		handleRoute(path);
-	}
+  function goTo(path) {
+    history.pushState({}, "", path);
+    handleRoute(path);
+  }
 
-	function handleRoute(route) {
-		container.innerHTML = ``;
-		routes.find((r) => {
-			if (r.path.test(route)) {
-				const el = r.component({ goTo: goTo });
-				container.appendChild(el);
-			}
-		});
-	}
+  function handleRoute(route) {
+    container.innerHTML = ``;
+    routes.find((r) => {
+      if (r.path.test(route)) {
+        const el = r.component({ goTo: goTo });
+        container.appendChild(el);
+      }
+    });
+  }
 
-	if (location.host.includes("alexismunoz1.github.io")) {
-		goTo("/desafio-modulo-5/welcome");
-	  } else {
-		handleRoute(location.pathname);
-	  }
+  if (location.host.includes("alexismunoz1.github.io")) {
+    goTo("/desafio-modulo-5/welcome");
+  } else {
+    handleRoute(location.pathname);
+  }
 }
