@@ -1,16 +1,17 @@
 {
-	"name": "desafio-modulo-5",
-	"version": "1.0.0",
-	"license": "MIT",
-	"devDependencies": {
-		"parcel": "^2.0.0-beta.3.1"
-	},
-	"scripts": {
-		"dev": "parcel serve ./src/index.html",
-		"build": "parcel build ./src/index.html --dist-dir build --public-url /desafio-modulo-5",
-		"deploy": "gh-pages -d build"
-	},
-	"dependencies": {
-		"gh-pages": "^3.2.3"
-	}
+   "name": "desafio-modulo-5",
+   "version": "1.0.0",
+   "license": "MIT",
+   "devDependencies": {
+      "parcel": "^2.0.0-beta.3.1"
+   },
+   "scripts": {
+      "dev": "parcel serve ./src/index.html",
+      "build": "parcel build ./src/index.html --dist-dir build --public-url /desafio-modulo-5",
+      "deploy": "gh-pages -d build"
+   },
+   "dependencies": {
+      "@types/node": "^18.6.1",
+      "gh-pages": "^3.2.3"
+   }
 }

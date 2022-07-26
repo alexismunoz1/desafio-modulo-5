@@ -3,11 +3,11 @@ const rules = require("url:../../assets/rules.svg");
 state.getStorage();
 
 export function init(params) {
-  const div = document.createElement("div");
-  div.classList.add("page");
-  const style = document.createElement("style");
+   const div = document.createElement("div");
+   div.classList.add("page");
+   const style = document.createElement("style");
 
-  div.innerHTML = `
+   div.innerHTML = `
         <img class="img-rules" src="${rules}">
         <button-comp class="btn-comp">¡jugar!</button-comp>
         <div class="hands">
@@ -18,7 +18,7 @@ export function init(params) {
 
     `;
 
-  style.innerHTML = `
+   style.innerHTML = `
     .page {
         width: 100%;
         height: 100vh;
@@ -37,10 +37,10 @@ export function init(params) {
         height: 240px;
     }`;
 
-  const button = div.querySelector(".btn-comp");
-  button.addEventListener("click", () => {
-    params.goTo("/desafio-modulo-5/game");
-  });
-  div.appendChild(style);
-  return div;
+   const button = div.querySelector(".btn-comp") as Element;
+   button.addEventListener("click", () => {
+      params.goTo("/desafio-modulo-5/game");
+   });
+   div.appendChild(style);
+   return div;
 }

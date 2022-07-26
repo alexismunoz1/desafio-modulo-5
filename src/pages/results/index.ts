@@ -1,43 +1,43 @@
 import { state } from "../../state";
 
 const resultImages = {
-  tie: require("url:../../assets/empate.svg"),
-  win: require("url:../../assets/ganaste.svg"),
-  loose: require("url:../../assets/perdiste.svg"),
+   tie: require("url:../../assets/empate.svg"),
+   win: require("url:../../assets/ganaste.svg"),
+   loose: require("url:../../assets/perdiste.svg"),
 };
 
 export function init(params) {
-  const div = document.createElement("div");
-  div.className = "result-cont";
-  div.classList.add("page");
+   const div = document.createElement("div");
+   div.className = "result-cont";
+   div.classList.add("page");
 
-  const resultado = state.whowins();
+   const resultado = state.whowins();
 
-  const styleBackground = document.createElement("style");
-  let imagen;
-  if (resultado == "empate") {
-    imagen = resultImages.tie;
-    styleBackground.innerHTML = `
+   const styleBackground = document.createElement("style");
+   let imagen;
+   if (resultado == "empate") {
+      imagen = resultImages.tie;
+      styleBackground.innerHTML = `
 		.result-cont {
 			background: var(--fondo-gris);  
 		}`;
-  }
-  if (resultado == "victoria") {
-    imagen = resultImages.win;
-    styleBackground.innerHTML = `
+   }
+   if (resultado == "victoria") {
+      imagen = resultImages.win;
+      styleBackground.innerHTML = `
 		.result-cont {
 			background: var(--fondo-verde);  
 		}`;
-  } else if (resultado == "derrota") {
-    imagen = resultImages.loose;
-    styleBackground.innerHTML = `
+   } else if (resultado == "derrota") {
+      imagen = resultImages.loose;
+      styleBackground.innerHTML = `
 		.result-cont {
 			background: var(--fondo-rojo);
 		}`;
-  }
+   }
 
-  const currentState = state.getState();
-  div.innerHTML = `
+   const currentState = state.getState();
+   div.innerHTML = `
 	  <img class="img-win" src="${imagen}">
 	  <div class="tablero">
       <h4>Score</h4>
@@ -48,20 +48,20 @@ export function init(params) {
 	  <button-comp class="button-clean">Reiniciar puntajes</button-comp>
     `;
 
-  const buttonBack = div.querySelector(".button-back");
-  buttonBack.addEventListener("click", () => {
-    params.goTo("/desafio-modulo-5/game");
-  });
+   const buttonBack = div.querySelector(".button-back") as Element;
+   buttonBack.addEventListener("click", () => {
+      params.goTo("/desafio-modulo-5/game");
+   });
 
-  const buttonClean = div.querySelector(".button-clean");
-  buttonClean.addEventListener("click", () => {
-    state.cleanData();
-    state.getStorage();
-    params.goTo("/desafio-modulo-5/rules");
-  });
+   const buttonClean = div.querySelector(".button-clean") as Element;
+   buttonClean.addEventListener("click", () => {
+      state.cleanData();
+      state.getStorage();
+      params.goTo("/desafio-modulo-5/rules");
+   });
 
-  const style = document.createElement("style");
-  style.innerHTML = `
+   const style = document.createElement("style");
+   style.innerHTML = `
   .page {
     width: 100%;
     height: 100vh;
@@ -94,7 +94,7 @@ export function init(params) {
   }
   `;
 
-  div.appendChild(styleBackground);
-  div.appendChild(style);
-  return div;
+   div.appendChild(styleBackground);
+   div.appendChild(style);
+   return div;
 }

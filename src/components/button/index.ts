@@ -1,18 +1,18 @@
 customElements.define(
-  "button-comp",
-  class Button extends HTMLElement {
-    shadow: ShadowRoot;
-    constructor() {
-      super();
-      this.shadow = this.attachShadow({ mode: "open" });
-      this.render();
-    }
-    render() {
-      const button = document.createElement("button");
-      const style = document.createElement("style");
-      button.className = "button-el";
+   "button-comp",
+   class Button extends HTMLElement {
+      shadow: ShadowRoot;
+      constructor() {
+         super();
+         this.shadow = this.attachShadow({ mode: "open" });
+         this.render();
+      }
+      render() {
+         const button = document.createElement("button");
+         const style = document.createElement("style");
+         button.className = "button-el";
 
-      style.innerHTML = `
+         style.innerHTML = `
 			  .button-el {
 				  color: #fff;
 				  width: 322px;
@@ -27,9 +27,9 @@ customElements.define(
 			  }
 			  `;
 
-      button.textContent = this.textContent;
-      this.shadow.appendChild(button);
-      this.shadow.appendChild(style);
-    }
-  }
+         button.textContent = this.textContent;
+         this.shadow.appendChild(button);
+         this.shadow.appendChild(style);
+      }
+   }
 );

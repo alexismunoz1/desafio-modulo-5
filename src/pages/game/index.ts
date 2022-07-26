@@ -1,23 +1,23 @@
 import { state } from "../../state";
 
 export function init(params) {
-  const div = document.createElement("div");
-  div.classList.add("page");
-  const style = document.createElement("style");
+   const div = document.createElement("div");
+   div.classList.add("page");
+   const style = document.createElement("style");
 
-  let counter = 3;
-  const countdown = setInterval(() => {
-    counter--;
-    const counterEl = div.querySelector(".counter-el");
-    counterEl.textContent = String(counter);
+   let counter = 3;
+   const countdown = setInterval(() => {
+      counter--;
+      const counterEl = div.querySelector(".counter-el") as Element;
+      counterEl.textContent = String(counter);
 
-    if (counter < 0) {
-      clearInterval(countdown);
-      params.goTo("/desafio-modulo-5/rules");
-    }
-  }, 1000);
+      if (counter < 0) {
+         clearInterval(countdown);
+         params.goTo("/desafio-modulo-5/rules");
+      }
+   }, 1000);
 
-  div.innerHTML = `
+   div.innerHTML = `
     <div class="counter-el">${counter}</div>
     <div class="hands-top">
       <hand-scissor class="scissor-top hand-display-none"></hand-scissor>
@@ -31,7 +31,7 @@ export function init(params) {
     </div>
     `;
 
-  style.innerHTML = `
+   style.innerHTML = `
 	  .page {
       width: 100%;
       height: 100vh;
@@ -83,87 +83,87 @@ export function init(params) {
       transition: all 0.5s;
     }`;
 
-  const countdownEl = div.querySelector(".counter-el");
-  const handsCont = div.querySelector(".hands").children;
-  const handsDiv = div.querySelector(".hands");
-  const handScissor = div.querySelector(".scissor");
-  const handStone = div.querySelector(".stone");
-  const handPaper = div.querySelector(".paper");
-  const handsTop = div.querySelector(".hands-top");
-  const handScissorTop = div.querySelector(".scissor-top");
-  const handStoneTop = div.querySelector(".stone-top");
-  const handPaperTop = div.querySelector(".paper-top");
+   const countdownEl = div.querySelector(".counter-el") as Element;
+   const handsCont = div.querySelector(".hands") as Element;
+   const handsDiv = div.querySelector(".hands") as Element;
+   const handScissor = div.querySelector(".scissor") as Element;
+   const handStone = div.querySelector(".stone") as Element;
+   const handPaper = div.querySelector(".paper") as Element;
+   const handsTop = div.querySelector(".hands-top") as Element;
+   const handScissorTop = div.querySelector(".scissor-top") as Element;
+   const handStoneTop = div.querySelector(".stone-top") as Element;
+   const handPaperTop = div.querySelector(".paper-top") as Element;
 
-  for (const hands of handsCont) {
-    hands.addEventListener("click", () => {
-      const type = hands.getAttribute("class");
-      clearInterval(countdown);
+   for (const hands of handsCont.children) {
+      hands.addEventListener("click", () => {
+         const type = hands.getAttribute("class");
+         clearInterval(countdown);
 
-      if (type == "scissor") {
-        state.setMove("tijera");
-        activeHands("tijera");
-      } else if (type == "stone") {
-        state.setMove("piedra");
-        activeHands("piedra");
-      } else if (type == "paper") {
-        state.setMove("papel");
-        activeHands("papel");
+         if (type == "scissor") {
+            state.setMove("tijera");
+            activeHands("tijera");
+         } else if (type == "stone") {
+            state.setMove("piedra");
+            activeHands("piedra");
+         } else if (type == "paper") {
+            state.setMove("papel");
+            activeHands("papel");
+         }
+      });
+   }
+
+   function activeHands(param) {
+      for (const hand of handsCont.children) {
+         hand.classList.add("disabled");
       }
-    });
-  }
 
-  function activeHands(param) {
-    for (const hand of handsCont) {
-      hand.classList.add("disabled");
-    }
-
-    if (param == "tijera") {
-      handScissor.classList.remove("disabled");
-      handScissor.classList.add("actived");
-      setTimeout(() => {
-        handStone.classList.add("hand-display-none");
-        handPaper.classList.add("hand-display-none");
-      }, 1500);
-    }
-    if (param == "piedra") {
-      handStone.classList.remove("disabled");
-      handStone.classList.add("actived");
-      setTimeout(() => {
-        handScissor.classList.add("hand-display-none");
-        handPaper.classList.add("hand-display-none");
-      }, 1500);
-    }
-    if (param == "papel") {
-      handPaper.classList.remove("disabled");
-      handPaper.classList.add("actived");
-      setTimeout(() => {
-        handScissor.classList.add("hand-display-none");
-        handStone.classList.add("hand-display-none");
-      }, 1500);
-    }
-
-    setTimeout(() => {
-      const machineMove = state.getState().currentGame.computerPlay;
-      countdownEl.remove();
-      handsDiv.classList.add("active-hands");
-      handsTop.classList.add("actived-hands-top");
-
-      if (machineMove == "tijera") {
-        handScissorTop.classList.add("actived-hand-top");
+      if (param == "tijera") {
+         handScissor.classList.remove("disabled");
+         handScissor.classList.add("actived");
+         setTimeout(() => {
+            handStone.classList.add("hand-display-none");
+            handPaper.classList.add("hand-display-none");
+         }, 1500);
       }
-      if (machineMove == "piedra") {
-        handStoneTop.classList.add("actived-hand-top");
+      if (param == "piedra") {
+         handStone.classList.remove("disabled");
+         handStone.classList.add("actived");
+         setTimeout(() => {
+            handScissor.classList.add("hand-display-none");
+            handPaper.classList.add("hand-display-none");
+         }, 1500);
       }
-      if (machineMove == "papel") {
-        handPaperTop.classList.add("actived-hand-top");
+      if (param == "papel") {
+         handPaper.classList.remove("disabled");
+         handPaper.classList.add("actived");
+         setTimeout(() => {
+            handScissor.classList.add("hand-display-none");
+            handStone.classList.add("hand-display-none");
+         }, 1500);
       }
 
       setTimeout(() => {
-        params.goTo("/desafio-modulo-5/results");
-      }, 1500);
-    }, 1500);
-  }
+         const machineMove = state.getState().currentGame.computerPlay;
+         countdownEl.remove();
+         handsDiv.classList.add("active-hands");
+         handsTop.classList.add("actived-hands-top");
 
-  div.appendChild(style);
-  return div;
+         if (machineMove == "tijera") {
+            handScissorTop.classList.add("actived-hand-top");
+         }
+         if (machineMove == "piedra") {
+            handStoneTop.classList.add("actived-hand-top");
+         }
+         if (machineMove == "papel") {
+            handPaperTop.classList.add("actived-hand-top");
+         }
+
+         setTimeout(() => {
+            params.goTo("/desafio-modulo-5/results");
+         }, 1500);
+      }, 1500);
+   }
+
+   div.appendChild(style);
+   return div;
 }

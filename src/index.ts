@@ -5,6 +5,6 @@ import "./components/piedra";
 import "./components/tijera";
 
 (function () {
-  const root = document.querySelector(".root");
-  initRouter(root);
+   const root = document.querySelector(".root") as Element;
+   initRouter(root);
 })();
